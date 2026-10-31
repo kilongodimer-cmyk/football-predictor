@@ -14,3 +14,12 @@ Projet en cours d'initialisation — le socle technique (stack, structure, donn�
 | Élément | Description |
 | --- | --- |
 | `README.md` | Présentation du projet |
+| `site/index.html` | Page d'accueil (HTML/CSS/JS, aucune dépendance) |
+
+## Lancer la page d'accueil
+
+```bash
+cd site && python3 -m http.server 8000
+```
+
+Puis ouvrir http://localhost:8000
