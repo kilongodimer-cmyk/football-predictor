@@ -162,6 +162,18 @@ Pour des commandes réellement persistantes en production, ajoutez un store Verc
 (ou une base Upstash) au projet : les variables `KV_REST_API_URL` et `KV_REST_API_TOKEN`
 sont détectées automatiquement, sans changement de code.
 
+### Instance en production
+
+| | |
+| --- | --- |
+| Site | https://fabriny-bakery.vercel.app |
+| Espace équipe | https://fabriny-bakery.vercel.app/admin |
+| Projet Vercel | `fabriny-bakery` (équipe `kilongo-muyeme`) |
+| Déploiement | manuel depuis `main` (déploiement automatique désactivé) |
+
+La clé d'administration de cette instance est définie par la variable d'environnement
+`ADMIN_KEY` du projet Vercel (elle ne figure pas dans le dépôt).
+
 ## Notes de production
 
 - Sauvegardez `data/orders.json` (ou branchez une base de données) : c'est le seul état persistant.
