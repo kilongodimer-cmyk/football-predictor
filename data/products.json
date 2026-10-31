@@ -1,0 +1,205 @@
+{
+  "categories": [
+    {
+      "id": "pains",
+      "label": "Pains",
+      "tagline": "Pétris la nuit, cuits au petit matin"
+    },
+    {
+      "id": "donuts",
+      "label": "Donuts",
+      "tagline": "Moelleux, glacés et généreux"
+    },
+    {
+      "id": "shawarma",
+      "label": "Shawarma",
+      "tagline": "Grillés à la commande"
+    },
+    {
+      "id": "douceurs",
+      "label": "Douceurs",
+      "tagline": "Le goûter du quartier"
+    }
+  ],
+  "products": [
+    {
+      "id": "baguette-tradition",
+      "category": "pains",
+      "name": "Baguette tradition",
+      "description": "Façonnée à la main, croûte croustillante et mie aérée. Cuite toutes les deux heures.",
+      "price": 1500,
+      "image": "assets/pains.jpg",
+      "badge": "Cuite du jour",
+      "popular": true
+    },
+    {
+      "id": "pain-levain",
+      "category": "pains",
+      "name": "Pain au levain · 500 g",
+      "description": "Fermentation lente de 18 heures, grande signature du fournil. Une mie dense et parfumée.",
+      "price": 3500,
+      "image": "assets/hero.jpg",
+      "badge": "Signature",
+      "popular": true
+    },
+    {
+      "id": "pain-complet",
+      "category": "pains",
+      "name": "Pain complet aux graines",
+      "description": "Farine complète, lin, tournesol et sésame. Le préféré des petits-déjeuners.",
+      "price": 3000,
+      "image": "assets/pains.jpg"
+    },
+    {
+      "id": "pain-mie",
+      "category": "pains",
+      "name": "Pain de mie moelleux",
+      "description": "Tranches épaisses, mie douce sans croûte. Parfait pour les sandwichs des enfants.",
+      "price": 4000,
+      "image": "assets/pains-2.jpg"
+    },
+    {
+      "id": "pain-brioche",
+      "category": "pains",
+      "name": "Brioche tressée",
+      "description": "Beurre, œufs et un peu de miel. Dorée, fondante, à partager le dimanche.",
+      "price": 3200,
+      "image": "assets/pains-2.jpg",
+      "badge": "Week-end"
+    },
+    {
+      "id": "petits-pains-graines",
+      "category": "pains",
+      "name": "Petits pains aux graines",
+      "description": "Six pièces individuelles, idéales pour le goûter ou le bureau.",
+      "price": 2500,
+      "image": "assets/pains-2.jpg"
+    },
+    {
+      "id": "donut-chocolat",
+      "category": "donuts",
+      "name": "Donut chocolat noir",
+      "description": "Glaçage chocolat 70 %, éclats de cacao. Le grand classique de la maison.",
+      "price": 1800,
+      "image": "assets/donuts.jpg",
+      "popular": true
+    },
+    {
+      "id": "donut-fraise",
+      "category": "donuts",
+      "name": "Donut fraise vermicelles",
+      "description": "Glaçage fraise brillant et vermicelles colorés. Le chouchou des enfants.",
+      "price": 1800,
+      "image": "assets/donuts.jpg"
+    },
+    {
+      "id": "donut-caramel",
+      "category": "donuts",
+      "name": "Donut caramel & pécan",
+      "description": "Caramel beurre salé coulant, noix de pécan torréfiées.",
+      "price": 2000,
+      "image": "assets/donuts.jpg"
+    },
+    {
+      "id": "donut-vanille",
+      "category": "donuts",
+      "name": "Donut vanille glacé",
+      "description": "Glaçage vanille de Madagascar, texture ultra moelleuse.",
+      "price": 1700,
+      "image": "assets/donuts.jpg"
+    },
+    {
+      "id": "box-donuts",
+      "category": "donuts",
+      "name": "Boîte de 6 donuts",
+      "description": "Six donuts au choix dans une boîte kraft. Le cadeau qui fait plaisir.",
+      "price": 9500,
+      "image": "assets/donuts-2.jpg",
+      "badge": "Best-seller",
+      "popular": true
+    },
+    {
+      "id": "shawarma-poulet",
+      "category": "shawarma",
+      "name": "Shawarma poulet",
+      "description": "Poulet mariné grillé, crudités, sauce à l'ail maison, pain tiède.",
+      "price": 6500,
+      "image": "assets/shawarma.jpg",
+      "popular": true
+    },
+    {
+      "id": "shawarma-boeuf",
+      "category": "shawarma",
+      "name": "Shawarma bœuf épicé",
+      "description": "Bœuf mariné aux épices du quartier, piment doux et oignons confits.",
+      "price": 7500,
+      "image": "assets/shawarma.jpg"
+    },
+    {
+      "id": "shawarma-mixte",
+      "category": "shawarma",
+      "name": "Shawarma mixte",
+      "description": "Poulet et bœuf réunis, double sauce. Pour les grandes faims.",
+      "price": 8000,
+      "image": "assets/shawarma.jpg"
+    },
+    {
+      "id": "shawarma-xxl",
+      "category": "shawarma",
+      "name": "Shawarma XXL",
+      "description": "Généreux, débordant, servi avec frites maison. À partager ou pas.",
+      "price": 10000,
+      "image": "assets/shawarma.jpg",
+      "badge": "Généreux"
+    },
+    {
+      "id": "assiette-shawarma",
+      "category": "shawarma",
+      "name": "Assiette shawarma & frites",
+      "description": "Viande grillée, frites dorées, salade fraîche, pain et sauce blanche.",
+      "price": 11000,
+      "image": "assets/shawarma-2.jpg"
+    },
+    {
+      "id": "croissant-beurre",
+      "category": "douceurs",
+      "name": "Croissant pur beurre",
+      "description": "Feuilletage maison, 27 couches, doré au jaune d'œuf.",
+      "price": 1800,
+      "image": "assets/patisserie.jpg",
+      "popular": true
+    },
+    {
+      "id": "pain-chocolat",
+      "category": "douceurs",
+      "name": "Pain au chocolat",
+      "description": "Deux barres de chocolat noir dans un feuilletage croustillant.",
+      "price": 2000,
+      "image": "assets/patisserie.jpg"
+    },
+    {
+      "id": "cookie",
+      "category": "douceurs",
+      "name": "Cookie pépites de chocolat",
+      "description": "Moelleux au centre, croustillant sur les bords. Sorti du four l'après-midi.",
+      "price": 1500,
+      "image": "assets/patisserie.jpg"
+    },
+    {
+      "id": "cafe-arabica",
+      "category": "douceurs",
+      "name": "Café arabica",
+      "description": "Torréfaction locale, servi serré ou allongé, à emporter.",
+      "price": 1200,
+      "image": "assets/patisserie.jpg"
+    },
+    {
+      "id": "jus-gingembre",
+      "category": "douceurs",
+      "name": "Jus de gingembre frais",
+      "description": "Pressé le matin, relevé juste comme il faut. 33 cl.",
+      "price": 1500,
+      "image": "assets/patisserie.jpg"
+    }
+  ]
+}

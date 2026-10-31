@@ -1,0 +1,323 @@
+/* Fabriny Bakery — espace équipe */
+
+.admin-body {
+  background: var(--cream-2);
+  min-height: 100vh;
+}
+
+.admin-header {
+  background: var(--ink);
+  color: var(--cream);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.admin-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 68px;
+}
+
+.admin-header .brand-mark {
+  color: var(--amber);
+}
+
+.admin-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.admin-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(251, 245, 233, 0.55);
+  margin-right: 0.4rem;
+}
+
+.admin-header .btn-ghost {
+  --btn-fg: var(--cream);
+  border-color: rgba(251, 245, 233, 0.24);
+}
+
+.admin-header .btn-ghost:hover {
+  --btn-bg: rgba(251, 245, 233, 0.1);
+}
+
+.admin-main {
+  padding-block: clamp(1.75rem, 4vw, 3rem) 4rem;
+}
+
+/* porte d'entrée */
+
+.admin-gate {
+  max-width: 27rem;
+  margin: clamp(2rem, 8vw, 6rem) auto;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  box-shadow: var(--shadow-md);
+}
+
+.admin-gate h1 {
+  font-size: 1.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.admin-gate > p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.admin-login {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.admin-hint {
+  margin-top: 1.5rem;
+  font-size: 0.76rem !important;
+  color: var(--muted);
+  border-top: 1px dashed var(--line);
+  padding-top: 1rem;
+}
+
+/* tableau de bord */
+
+.admin-topbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.75rem;
+}
+
+.admin-topbar h1 {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+}
+
+.admin-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.live-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+
+.live-dot span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #3f9153;
+  animation: pulse 2.4s infinite;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.stat {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.1rem;
+}
+
+.stat span {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+
+.stat strong {
+  font-family: var(--display);
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.stat.is-accent {
+  background: var(--amber);
+  border-color: transparent;
+}
+
+.stat.is-accent span {
+  color: rgba(42, 26, 5, 0.6);
+}
+
+.admin-filters {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.orders {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.order {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem 1.2rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.order.is-new {
+  border-left: 3px solid var(--clay);
+}
+
+.order-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.order-code {
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.order-meta {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  flex-wrap: wrap;
+  margin-top: 0.15rem;
+}
+
+.order-badge {
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: rgba(233, 162, 59, 0.18);
+  color: #8a5610;
+}
+
+.order-badge[data-state="prete"] {
+  background: rgba(63, 145, 83, 0.16);
+  color: #2f7440;
+}
+
+.order-badge[data-state="retiree"] {
+  background: rgba(23, 16, 9, 0.08);
+  color: var(--ink-3);
+}
+
+.order-badge[data-state="annulee"] {
+  background: rgba(185, 86, 63, 0.14);
+  color: #94381f;
+}
+
+.order-items {
+  font-size: 0.86rem;
+  color: var(--ink-3);
+  display: grid;
+  gap: 0.15rem;
+}
+
+.order-items span {
+  color: var(--muted);
+}
+
+.order-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  border-top: 1px dashed var(--line);
+  padding-top: 0.75rem;
+}
+
+.order-total {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.order-actions {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  border-radius: var(--radius-pill);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--ink-3);
+  transition: all 0.2s var(--ease);
+}
+
+.action-btn:hover {
+  border-color: var(--ink);
+  background: rgba(23, 16, 9, 0.05);
+}
+
+.action-btn.is-primary {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--cream);
+}
+
+.action-btn.is-primary:hover {
+  background: var(--clay);
+  border-color: var(--clay);
+}
+
+.action-btn.is-danger:hover {
+  border-color: #a8432f;
+  color: #a8432f;
+  background: rgba(168, 67, 47, 0.06);
+}
+
+.orders-empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 3rem 0;
+}
+
+@media (max-width: 620px) {
+  .admin-tag {
+    display: none;
+  }
+
+  .order-head {
+    flex-direction: column;
+  }
+}

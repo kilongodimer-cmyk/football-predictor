@@ -1,0 +1,15 @@
+{
+  "name": "fabriny-bakery",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site et système de commande de la boulangerie Fabriny Bakery (pains, donuts, shawarma)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED"
+}

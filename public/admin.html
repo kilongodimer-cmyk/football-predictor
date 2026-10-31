@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Espace équipe · Fabriny Bakery</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preload" href="fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/jakarta-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="admin.css" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body class="admin-body">
+  <header class="admin-header">
+    <div class="shell admin-header-inner">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="22.5" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".4" />
+          <path d="M24 11.5v25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <path d="M24 16.5c-3.2 0-5.4 2.1-5.4 5.6 3.4.2 5.4-2 5.4-5.6Z" fill="currentColor" opacity=".85" />
+          <path d="M24 16.5c3.2 0 5.4 2.1 5.4 5.6-3.4.2-5.4-2-5.4-5.6Z" fill="currentColor" opacity=".55" />
+          <path d="M24 24c-3.2 0-5.4 2.1-5.4 5.6 3.4.2 5.4-2 5.4-5.6Z" fill="currentColor" opacity=".85" />
+          <path d="M24 24c3.2 0 5.4 2.1 5.4 5.6-3.4.2-5.4-2-5.4-5.6Z" fill="currentColor" opacity=".55" />
+        </svg>
+        <span class="brand-text">Fabriny<em>Bakery</em></span>
+      </a>
+      <div class="admin-header-actions">
+        <span class="admin-tag">Espace équipe</span>
+        <a class="btn btn-ghost small" href="index.html">Voir le site</a>
+        <button type="button" class="btn btn-ghost small" data-logout hidden>Quitter</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell admin-main">
+    <section class="admin-gate" data-gate>
+      <h1>Connexion équipe</h1>
+      <p>Entrez la clé de la boutique pour accéder aux commandes du jour.</p>
+      <form data-login-form class="admin-login">
+        <div class="field">
+          <label for="admin-key">Clé d'accès</label>
+          <input id="admin-key" type="password" autocomplete="current-password" placeholder="••••••••" required />
+        </div>
+        <button class="btn btn-primary" type="submit">Se connecter</button>
+        <p class="form-error" data-login-error role="alert" hidden></p>
+      </form>
+      <p class="admin-hint">Clé par défaut en développement : <code>fabriny2026</code> (modifiable via la variable d'environnement <code>ADMIN_KEY</code>).</p>
+    </section>
+
+    <section class="admin-dashboard" data-dashboard hidden>
+      <div class="admin-topbar">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>Tableau de bord</p>
+          <h1>Commandes</h1>
+        </div>
+        <div class="admin-actions">
+          <span class="live-dot"><span></span> Actualisation auto</span>
+          <button type="button" class="btn btn-ghost small" data-refresh>Rafraîchir</button>
+        </div>
+      </div>
+
+      <div class="stats" data-stats></div>
+
+      <div class="admin-filters" data-admin-filters></div>
+      <div class="orders" data-orders></div>
+      <p class="orders-empty" data-orders-empty hidden>Aucune commande dans cette vue.</p>
+    </section>
+  </main>
+
+  <div class="toast" data-toast role="status" aria-live="polite" hidden></div>
+
+  <script src="admin.js" defer></script>
+</body>
+</html>
