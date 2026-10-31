@@ -365,6 +365,12 @@ async function serveStatic(req, res, url) {
     return res.end();
   }
 
+  // Certains navigateurs demandent /favicon.ico même avec un SVG déclaré
+  if (pathname === '/favicon.ico') {
+    res.writeHead(302, { location: '/assets/favicon.svg' });
+    return res.end();
+  }
+
   if (pathname === '/' || pathname === '') pathname = '/index.html';
   if (pathname === '/menu' || pathname === '/commander') pathname = '/index.html';
   if (pathname === '/admin' || pathname === '/admin/') pathname = '/admin.html';
