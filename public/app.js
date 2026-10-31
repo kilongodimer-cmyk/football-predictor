@@ -688,7 +688,7 @@ async function trackOrder(code, phone) {
 
   try {
     const response = await fetch(
-      `/api/orders/${encodeURIComponent(code.trim().toUpperCase())}?phone=${encodeURIComponent(phone)}`
+      `/api/orders?code=${encodeURIComponent(code.trim().toUpperCase())}&phone=${encodeURIComponent(phone)}`
     );
     const payload = await response.json().catch(() => ({}));
     if (!response.ok) {
