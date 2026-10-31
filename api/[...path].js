@@ -39,9 +39,13 @@ module.exports = async function handler(req, res) {
   const url = new URL(req.url, `https://${req.headers.host || 'localhost'}`);
   const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
 
-  // req.url conserve le chemin d'origine (/api/orders/...) ;
-  // req.query.path n'est pas toujours renseigné selon le runtime.
-  const pathname = url.pathname.startsWith('/api') ? url.pathname : toPathname(req.query);
+  // Selon le runtime, req.url vaut /api/products, /products, ou rien d'exploitable :
+  // on normalise systématiquement vers /api/<reste>.
+  const rawPath = url.pathname || '/';
+  const withoutApi = rawPath.replace(/^\/api(?=\/|$)/, '') || '/';
+  const pathname = withoutApi === '/' && !rawPath.startsWith('/api')
+    ? toPathname(req.query)
+    : `/api${withoutApi === '/' ? '' : withoutApi}`;
 
   let result;
   try {
