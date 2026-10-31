@@ -133,7 +133,7 @@ async function loadOrders() {
   if (state.loading) return;
   state.loading = true;
   try {
-    const { orders } = await api('/api/admin/orders');
+    const { orders } = await api('/api/admin-orders');
     state.orders = Array.isArray(orders) ? orders : [];
     render();
   } catch (error) {
@@ -241,9 +241,9 @@ function render() {
 
 async function advance(code, status) {
   try {
-    await api(`/api/admin/orders/${encodeURIComponent(code)}`, {
+    await api(`/api/admin-orders?code=${encodeURIComponent(code)}`, {
       method: 'PATCH',
-      body: JSON.stringify({ status })
+      body: JSON.stringify({ status, code })
     });
     toast(`${code} → ${STATUS[status]?.label || status}`);
     await loadOrders();
@@ -260,7 +260,7 @@ function bind() {
     state.key = key;
     ui.loginError.hidden = true;
     try {
-      const { orders } = await api('/api/admin/orders');
+      const { orders } = await api('/api/admin-orders');
       sessionStorage.setItem(KEY_STORE, key);
       state.orders = orders || [];
       showDashboard();
@@ -297,7 +297,7 @@ async function init() {
   bind();
   if (state.key) {
     try {
-      const { orders } = await api('/api/admin/orders');
+      const { orders } = await api('/api/admin-orders');
       state.orders = orders || [];
       showDashboard();
       render();

@@ -93,9 +93,9 @@ ADMIN_KEY="une-cle-solide" PORT=8080 npm start
 | `GET` | `/api/config` | Infos boutique, catégories, statuts |
 | `GET` | `/api/products` | Catalogue complet |
 | `POST` | `/api/orders` | Crée une commande (prix et frais recalculés côté serveur) |
-| `GET` | `/api/orders/:code?phone=` | Suivi (le téléphone doit correspondre) |
-| `GET` | `/api/admin/orders` | Liste des commandes *(clé requise)* |
-| `PATCH` | `/api/admin/orders/:code` | Change le statut *(clé requise)* |
+| `GET` | `/api/orders?code=FB-XXXX&phone=` | Suivi (le téléphone doit correspondre) |
+| `GET` | `/api/admin-orders` | Liste des commandes *(clé requise)* |
+| `PATCH` | `/api/admin-orders?code=FB-XXXX` | Change le statut *(clé requise)* |
 | `GET` | `/api/health` | Sonde de disponibilité |
 
 Exemple de commande :
@@ -112,6 +112,11 @@ curl -X POST http://localhost:8000/api/orders \
 ```
 
 La clé d'administration se transmet via l'en-tête `x-admin-key` (ou `?key=`).
+
+Les routes sont volontairement **plates** (`/api/orders?code=…`, `/api/admin-orders?code=…`) :
+sur Vercel, les chemins d'API imbriqués ne sont pas toujours routés vers une fonction
+*catch-all*. Les anciennes formes (`/api/orders/:code`, `/api/admin/orders[/:code]`)
+restent acceptées par le serveur local.
 
 ### Garde-fous
 
