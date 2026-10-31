@@ -33,7 +33,8 @@ pains artisanaux, donuts et shawarma.
 | Élément | Choix |
 | --- | --- |
 | Serveur | Node.js natif (`node:http`), **aucune dépendance npm** |
-| Stockage | Fichier JSON (`data/orders.json`) |
+| Déploiement | Vercel (statique + fonction serverless `api/`) |
+| Stockage | JSON sur fichier — ou Vercel KV / Upstash si configuré |
 | Front-end | HTML, CSS et JavaScript natifs (aucun framework) |
 | Polices | Fraunces & Plus Jakarta Sans, auto-hébergées (licence OFL) |
 | Images | Générées pour le projet, dans `public/assets/` |
@@ -63,7 +64,14 @@ ADMIN_KEY="une-cle-solide" PORT=8080 npm start
 ## Structure
 
 ```
-├── server.js              # serveur HTTP + API (routes, validation, stockage)
+├── server.js              # serveur local : statique + API
+├── api/[...path].js       # fonction serverless Vercel (mêmes routes)
+├── lib/
+│   ├── api.js             # cœur de l'API (indépendant du serveur)
+│   ├── orders.js          # validation, totaux, statuts
+│   ├── store.js           # persistance (KV / fichier / mémoire)
+│   └── catalog.js         # lecture du catalogue et des paramètres
+├── vercel.json            # configuration de déploiement
 ├── data/
 │   ├── products.json      # catalogue : catégories, produits, prix
 │   ├── shop.json          # infos boutique : horaires, téléphone, livraison
@@ -122,6 +130,32 @@ La clé d'administration se transmet via l'en-tête `x-admin-key` (ou `?key=`).
 - **Couleurs, typographie, arrondis** → variables CSS en tête de `public/styles.css`
 
 Les coordonnées livrées sont des valeurs d'exemple (`+243 97 000 0000`, avenue Kasavubu) : **remplacez-les par les vraies coordonnées de la boutique** avant la mise en ligne.
+
+## Déploiement sur Vercel
+
+Le projet est prêt pour Vercel : le site statique sort de `public/`, l'API est servie par
+`api/[...path].js`, et `vercel.json` s'occupe des réécritures (`/admin`, favicon), du cache et
+de l'inclusion des fichiers `data/*.json` dans la fonction.
+
+```bash
+vercel            # préversion
+vercel --prod     # production
+```
+
+Ou simplement connecter le dépôt GitHub au projet : chaque push sur `main` redéploie.
+
+**Persistance des commandes.** Sur Vercel, le système de fichiers n'est pas durable.
+`lib/store.js` choisit automatiquement son adaptateur :
+
+| Situation | Adaptateur | Persistance |
+| --- | --- | --- |
+| `KV_REST_API_URL` + `KV_REST_API_TOKEN` définis | Vercel KV / Upstash (REST) | **durable** |
+| Sur Vercel sans KV | fichier `/tmp` | à la durée de l'instance |
+| En local | `data/orders.json` | durable |
+
+Pour des commandes réellement persistantes en production, ajoutez un store Vercel KV
+(ou une base Upstash) au projet : les variables `KV_REST_API_URL` et `KV_REST_API_TOKEN`
+sont détectées automatiquement, sans changement de code.
 
 ## Notes de production
 
