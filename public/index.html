@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fabriny Bakery · Pains, donuts &amp; shawarma à Lubumbashi</title>
+  <meta name="description" content="Boulangerie artisanale de quartier : pains au levain, donuts glacés et shawarma grillé. Commandez en ligne, retrait en 20 min ou livraison à Lubumbashi." />
+  <meta name="theme-color" content="#171009" />
+  <link rel="preload" href="fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/jakarta-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body id="top">
+  <a class="skip-link" href="#menu">Aller à la carte</a>
+
+  <div class="announcement">
+    <p><span class="pulse-dot" aria-hidden="true"></span><span data-shop-announcement>Livraison offerte dès 15 000 FC dans le quartier</span></p>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Fabriny Bakery, accueil">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="22.5" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".4" />
+          <path d="M24 11.5v25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <path d="M24 16.5c-3.2 0-5.4 2.1-5.4 5.6 3.4.2 5.4-2 5.4-5.6Z" fill="currentColor" opacity=".85" />
+          <path d="M24 16.5c3.2 0 5.4 2.1 5.4 5.6-3.4.2-5.4-2-5.4-5.6Z" fill="currentColor" opacity=".55" />
+          <path d="M24 24c-3.2 0-5.4 2.1-5.4 5.6 3.4.2 5.4-2 5.4-5.6Z" fill="currentColor" opacity=".85" />
+          <path d="M24 24c3.2 0 5.4 2.1 5.4 5.6-3.4.2-5.4-2-5.4-5.6Z" fill="currentColor" opacity=".55" />
+          <path d="M24 31.4c-3.2 0-5.4 2.1-5.4 5.6 3.4.2 5.4-2 5.4-5.6Z" fill="currentColor" opacity=".85" />
+          <path d="M24 31.4c3.2 0 5.4 2.1 5.4 5.6-3.4.2-5.4-2-5.4-5.6Z" fill="currentColor" opacity=".55" />
+        </svg>
+        <span class="brand-text">Fabriny<em>Bakery</em></span>
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#menu">La carte</a>
+        <a href="#fournil">Notre fournil</a>
+        <a href="#commander">Commander</a>
+        <a href="#suivi">Suivre ma commande</a>
+        <a href="#infos">Nous trouver</a>
+      </nav>
+
+      <div class="header-actions">
+        <span class="open-status" data-open-status>
+          <span class="status-dot" aria-hidden="true"></span>
+          <span data-open-label>Ouvert</span>
+        </span>
+        <button type="button" class="cart-btn" data-open-cart aria-label="Ouvrir mon panier">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.2 8h11.6l-1 11.2a1.6 1.6 0 0 1-1.6 1.4H8.8a1.6 1.6 0 0 1-1.6-1.4L6.2 8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.2 8V6.4a2.8 2.8 0 0 1 5.6 0V8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span class="cart-count" data-cart-count hidden>0</span>
+        </button>
+        <button type="button" class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-panel">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-panel" id="mobile-panel" hidden>
+      <a href="#menu">La carte</a>
+      <a href="#fournil">Notre fournil</a>
+      <a href="#commander">Commander</a>
+      <a href="#suivi">Suivre ma commande</a>
+      <a href="#infos">Nous trouver</a>
+      <a class="mobile-phone" data-shop-phone-link href="tel:">Appeler la boutique</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>Boulangerie artisanale · Lubumbashi</p>
+          <h1>Le pain qui réveille<br /><em>tout le quartier.</em></h1>
+          <p class="hero-lead">
+            Pains au levain cuits au petit matin, donuts glacés à la main et shawarma grillé à la commande.
+            Chaque jour, dès 5h30, au coin de l'avenue.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#menu">
+              Commander maintenant
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="#fournil">Découvrir le fournil</a>
+          </div>
+          <dl class="hero-stats">
+            <div>
+              <dt data-stat-products>21</dt>
+              <dd>produits faits maison</dd>
+            </div>
+            <div>
+              <dt data-stat-rating>4,9<small>/5</small></dt>
+              <dd>avis du quartier</dd>
+            </div>
+            <div>
+              <dt>20<small> min</small></dt>
+              <dd>prêt à emporter</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero-media">
+          <figure class="hero-photo">
+            <img src="assets/hero.jpg" alt="Pains au levain et baguettes fraîchement sortis du four" width="1400" height="933" />
+            <figcaption class="hero-photo-caption">
+              <span>Sortie du four</span>
+              <strong data-shop-hours-today>5h30 – 20h00</strong>
+            </figcaption>
+          </figure>
+
+          <div class="hero-card">
+            <span class="hero-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 15c0-4.4 3.6-8 8-8s8 3.6 8 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M3 15h18l-1.4 3.4a2 2 0 0 1-1.8 1.2H6.2a2 2 0 0 1-1.8-1.2L3 15Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            </span>
+            <div>
+              <strong>Fournil allumé à 4h30</strong>
+              <p>Le premier pain sort à 5h30 pile.</p>
+            </div>
+          </div>
+
+          <div class="seal" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <defs>
+                <path id="seal-path" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0" />
+              </defs>
+              <text><textPath href="#seal-path" startOffset="0">FABRINY BAKERY · CUIT AU FOURNIL · DEPUIS 2019 ·</textPath></text>
+            </svg>
+            <span class="seal-core">✶</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANDEAU DÉFILANT -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Pain au levain</span><span class="sep">✦</span>
+        <span>Donuts glacés</span><span class="sep">✦</span>
+        <span>Shawarma grillé</span><span class="sep">✦</span>
+        <span>Baguette tradition</span><span class="sep">✦</span>
+        <span>Brioche tressée</span><span class="sep">✦</span>
+        <span>Croissants pur beurre</span><span class="sep">✦</span>
+        <span>Pain au levain</span><span class="sep">✦</span>
+        <span>Donuts glacés</span><span class="sep">✦</span>
+        <span>Shawarma grillé</span><span class="sep">✦</span>
+        <span>Baguette tradition</span><span class="sep">✦</span>
+        <span>Brioche tressée</span><span class="sep">✦</span>
+        <span>Croissants pur beurre</span><span class="sep">✦</span>
+      </div>
+    </div>
+
+    <!-- CARTE -->
+    <section class="section menu-section" id="menu">
+      <div class="shell">
+        <header class="section-head">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>La carte du jour</p>
+            <h2>Tout est fait ici,<br /><em>chaque matin.</em></h2>
+          </div>
+          <p class="section-note">
+            Ajoutez à votre panier, choisissez le retrait ou la livraison, et payez à la récupération.
+            Commandes acceptées jusqu'à 19h30.
+          </p>
+        </header>
+
+        <div class="filters" role="tablist" aria-label="Filtrer la carte" data-filters></div>
+        <div class="product-grid" data-products aria-live="polite"></div>
+        <p class="grid-empty" data-grid-empty hidden>Aucun produit dans cette catégorie pour le moment.</p>
+      </div>
+    </section>
+
+    <!-- FOURNIL -->
+    <section class="section story" id="fournil">
+      <div class="shell story-grid">
+        <div class="story-media">
+          <img src="assets/pains.jpg" alt="Assortiment de pains artisanaux sur ardoise" width="1400" height="933" loading="lazy" />
+          <div class="story-badge">
+            <strong>Depuis 2019</strong>
+            <span>au service du quartier</span>
+          </div>
+        </div>
+        <div class="story-copy">
+          <p class="eyebrow light"><span class="eyebrow-line" aria-hidden="true"></span>Notre fournil</p>
+          <h2>La patience du levain,<br /><em>la chaleur du quartier.</em></h2>
+          <p>
+            Fabriny Bakery est née d'un four à pain et d'une idée simple : que chacun puisse acheter,
+            à deux pas de chez lui, un pain qui a du goût et un shawarma qui tient au ventre.
+          </p>
+          <p>
+            Nos pâtes fermentent dix-huit heures. Nos donuts sont glacés à la main. Nos shawarmas sont
+            montés à la commande, jamais à l'avance.
+          </p>
+          <ul class="story-list">
+            <li><span aria-hidden="true">✦</span> Farines locales, sélectionnées chaque semaine</li>
+            <li><span aria-hidden="true">✦</span> Zéro produit de la veille, tout est vendu ou donné</li>
+            <li><span aria-hidden="true">✦</span> Livraison à vélo dans un rayon de 3 km</li>
+          </ul>
+          <a class="btn btn-light" href="#menu">Voir la carte complète</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMANDER -->
+    <section class="section order-section" id="commander">
+      <div class="shell">
+        <header class="section-head centered">
+          <p class="eyebrow center"><span class="eyebrow-line" aria-hidden="true"></span>Commander</p>
+          <h2>Trois clics, <em>vingt minutes.</em></h2>
+          <p class="section-note">
+            Pas de compte à créer, pas de paiement en ligne. Vous commandez, nous préparons, vous récupérez.
+          </p>
+        </header>
+
+        <div class="steps">
+          <article class="step">
+            <span class="step-index">01</span>
+            <h3>Choisissez</h3>
+            <p>Ajoutez vos pains, donuts et shawarmas au panier depuis la carte.</p>
+          </article>
+          <article class="step">
+            <span class="step-index">02</span>
+            <h3>Envoyez</h3>
+            <p>Indiquez votre nom et votre numéro. Vous recevez un code de commande.</p>
+          </article>
+          <article class="step">
+            <span class="step-index">03</span>
+            <h3>Récupérez</h3>
+            <p>Retrait au comptoir en 20 min, ou livraison dans le quartier.</p>
+          </article>
+        </div>
+
+        <div class="order-cards">
+          <article class="order-card">
+            <h3>Retrait au comptoir</h3>
+            <p class="order-price">Gratuit</p>
+            <p>Votre commande vous attend, prête en 20 minutes environ. Passez au comptoir avec votre code.</p>
+            <button type="button" class="btn btn-primary" data-open-cart>Commander pour le retrait</button>
+          </article>
+          <article class="order-card order-card--accent">
+            <h3>Livraison dans le quartier</h3>
+            <p class="order-price">2 000 FC <span>· offerte dès 15 000 FC</span></p>
+            <p>Livrée à vélo en 30 à 45 minutes, du lundi au samedi jusqu'à 19h30.</p>
+            <button type="button" class="btn btn-dark" data-open-cart data-set-mode="livraison">Commander en livraison</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUIVI -->
+    <section class="section tracking" id="suivi">
+      <div class="shell tracking-grid">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>Suivi de commande</p>
+          <h2>Où en est <em>mon pain ?</em></h2>
+          <p class="section-note left">
+            Entrez le code reçu lors de votre commande (par exemple <code>FB-XXXXX</code>) et votre numéro de téléphone.
+          </p>
+          <form class="track-form" data-track-form novalidate>
+            <div class="field">
+              <label for="track-code">Code de commande</label>
+              <input id="track-code" name="code" placeholder="FB-7K2P9" autocomplete="off" required />
+            </div>
+            <div class="field">
+              <label for="track-phone">Téléphone</label>
+              <input id="track-phone" name="phone" type="tel" placeholder="+243 97 000 0000" autocomplete="tel" required />
+            </div>
+            <button class="btn btn-primary" type="submit">Suivre ma commande</button>
+          </form>
+          <p class="form-error" data-track-error role="alert" hidden></p>
+        </div>
+
+        <div class="track-result" data-track-result hidden>
+          <div class="track-head">
+            <span class="track-code" data-track-code>FB-00000</span>
+            <span class="track-status" data-track-status>Reçue</span>
+          </div>
+          <ol class="timeline" data-timeline></ol>
+          <p class="track-foot" data-track-foot></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFOS -->
+    <section class="section infos" id="infos">
+      <div class="shell">
+        <header class="section-head">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>Nous trouver</p>
+            <h2>Au coin de l'avenue,<br /><em>comme toujours.</em></h2>
+          </div>
+        </header>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <h3>Horaires</h3>
+            <ul class="hours" data-hours></ul>
+            <p class="info-note" data-open-note>Ouvert aujourd'hui</p>
+          </article>
+
+          <article class="info-card info-card--map">
+            <div class="map-art" aria-hidden="true">
+              <span class="map-pin"></span>
+            </div>
+            <div class="map-body">
+              <h3 data-shop-address-line1>Adresse</h3>
+              <p data-shop-address-full>Lubumbashi</p>
+              <a class="btn btn-ghost small" data-shop-maps href="#" target="_blank" rel="noopener">Itinéraire</a>
+            </div>
+          </article>
+
+          <article class="info-card">
+            <h3>Nous appeler</h3>
+            <p>Une question, une grosse commande pour un événement ? Appelez-nous la veille.</p>
+            <a class="info-link" data-shop-phone-link href="tel:"><span data-shop-phone>+243</span></a>
+            <a class="info-link muted" data-shop-whatsapp href="#" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div class="footer-brand">
+        <span class="brand-text light">Fabriny<em>Bakery</em></span>
+        <p>Boulangerie artisanale de quartier.<br />Pains, donuts &amp; shawarma, faits maison.</p>
+      </div>
+      <nav aria-label="Liens de pied de page">
+        <h4>Boutique</h4>
+        <a href="#menu">La carte</a>
+        <a href="#commander">Commander</a>
+        <a href="#suivi">Suivre une commande</a>
+      </nav>
+      <div>
+        <h4>Contact</h4>
+        <a data-shop-phone-link href="tel:"><span data-shop-phone>+243</span></a>
+        <a data-shop-whatsapp href="#" target="_blank" rel="noopener">WhatsApp</a>
+        <a data-shop-maps href="#" target="_blank" rel="noopener">Itinéraire</a>
+      </div>
+      <div>
+        <h4>Maison</h4>
+        <a href="#fournil">Notre fournil</a>
+        <a href="admin.html">Espace équipe</a>
+      </div>
+    </div>
+    <div class="shell footer-bottom">
+      <p>© <span data-year>2026</span> Fabriny Bakery · Lubumbashi, RDC</p>
+      <p>Cuit au fournil, servi avec le sourire.</p>
+    </div>
+  </footer>
+
+  <!-- PANIER -->
+  <div class="drawer-overlay" data-drawer-overlay hidden></div>
+  <aside class="drawer" id="cart-drawer" aria-label="Mon panier" aria-hidden="true">
+    <header class="drawer-head">
+      <div>
+        <p class="drawer-eyebrow">Votre commande</p>
+        <h2 data-drawer-title>Panier</h2>
+      </div>
+      <button type="button" class="icon-btn" data-close-cart aria-label="Fermer le panier">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </header>
+
+    <div class="drawer-body" data-cart-view>
+      <div class="cart-empty" data-cart-empty>
+        <span aria-hidden="true">🥐</span>
+        <h3>Votre panier est encore vide</h3>
+        <p>Le pain sort du four à 5h30. Ajoutez ce qui vous fait envie.</p>
+        <button type="button" class="btn btn-primary" data-close-cart>Voir la carte</button>
+      </div>
+
+      <div class="cart-lines" data-cart-lines hidden></div>
+
+      <form class="checkout" data-checkout-form novalidate hidden>
+        <div class="mode-switch" role="radiogroup" aria-label="Mode de récupération">
+          <button type="button" role="radio" aria-checked="true" class="mode-btn is-active" data-mode="retrait">
+            Retrait <span>Gratuit</span>
+          </button>
+          <button type="button" role="radio" aria-checked="false" class="mode-btn" data-mode="livraison">
+            Livraison <span data-delivery-fee>2 000 FC</span>
+          </button>
+        </div>
+
+        <div class="field">
+          <label for="order-name">Nom</label>
+          <input id="order-name" name="name" autocomplete="name" placeholder="Ex. Fabrice N." required />
+          <p class="field-error" data-error-for="name" hidden></p>
+        </div>
+
+        <div class="field">
+          <label for="order-phone">Téléphone</label>
+          <input id="order-phone" name="phone" type="tel" autocomplete="tel" placeholder="+243 97 000 0000" required />
+          <p class="field-error" data-error-for="phone" hidden></p>
+        </div>
+
+        <div class="field" data-address-field hidden>
+          <label for="order-address">Adresse de livraison</label>
+          <input id="order-address" name="address" autocomplete="street-address" placeholder="Avenue, numéro, repère" />
+          <p class="field-error" data-error-for="address" hidden></p>
+        </div>
+
+        <div class="field">
+          <label for="order-note">Note pour le fournil <span>(facultatif)</span></label>
+          <textarea id="order-note" name="note" rows="2" maxlength="300" placeholder="Sans sésame, bien grillé, etc."></textarea>
+        </div>
+
+        <p class="form-error" data-order-error role="alert" hidden></p>
+      </form>
+    </div>
+
+    <footer class="drawer-foot" data-cart-foot hidden>
+      <div class="totals">
+        <div><span>Sous-total</span><span data-total-subtotal>0 FC</span></div>
+        <div><span>Livraison</span><span data-total-delivery>Gratuit</span></div>
+        <div class="totals-grand"><span>Total</span><span data-total-grand>0 FC</span></div>
+      </div>
+      <button type="button" class="btn btn-primary btn-block" data-submit-order>
+        Envoyer la commande
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <p class="foot-note">Paiement à la récupération · Espèces, Airtel Money ou M-Pesa</p>
+    </footer>
+
+    <div class="drawer-success" data-success hidden>
+      <div class="success-mark" aria-hidden="true">
+        <svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="2.5" /><path d="M15 27l7.5 7.5L37 19" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </div>
+      <h3>Commande envoyée !</h3>
+      <p>Gardez ce code, il vous permet de suivre la préparation.</p>
+      <div class="success-code">
+        <span data-success-code>FB-00000</span>
+        <button type="button" class="icon-btn" data-copy-code aria-label="Copier le code">⧉</button>
+      </div>
+      <p class="success-meta" data-success-meta></p>
+      <div class="success-actions">
+        <a class="btn btn-dark" data-success-track href="#suivi">Suivre ma commande</a>
+        <a class="btn btn-light" data-success-whatsapp href="#" target="_blank" rel="noopener">Envoyer sur WhatsApp</a>
+      </div>
+      <button type="button" class="link-btn" data-new-order>Nouvelle commande</button>
+    </div>
+  </aside>
+
+  <!-- BARRE MOBILE -->
+  <div class="mobile-bar" data-mobile-bar hidden>
+    <div>
+      <span data-mobile-count>0 article</span>
+      <strong data-mobile-total>0 FC</strong>
+    </div>
+    <button type="button" class="btn btn-primary" data-open-cart>Voir le panier</button>
+  </div>
+
+  <div class="toast" data-toast role="status" aria-live="polite" hidden></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

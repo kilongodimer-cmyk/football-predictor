@@ -1,25 +1,135 @@
-# Boulangerie Fabriny Bakery
+# Fabriny Bakery
 
-Application de la **Boulangerie Fabriny Bakery** : gestion de la boutique et des commandes.
+Site vitrine **et** système de commande de la boulangerie de quartier **Fabriny Bakery** (Lubumbashi, RDC) :
+pains artisanaux, donuts et shawarma.
 
-> Ce dépôt s'appelait auparavant `football-predictor` ; il a été renommé et réorienté
-> vers le projet Boulangerie Fabriny Bakery.
+> Ce dépôt s'appelait auparavant `football-predictor` ; il a été réorienté vers le projet Boulangerie Fabriny Bakery.
 
-## Statut
+---
 
-Projet en cours d'initialisation — le socle technique (stack, structure, données) reste à définir.
+## Ce que fait le site
+
+**Côté client**
+
+- Carte de 21 produits répartis en 4 familles : Pains, Donuts, Shawarma, Douceurs — filtrable sans rechargement.
+- Panier persistant (localStorage) avec quantités, sous-total et frais de livraison calculés en direct.
+- Commande sans compte : nom, téléphone, adresse si livraison, note pour le fournil.
+- **Code de commande** (`FB-XXXXX`) délivré à l'envoi, avec lien WhatsApp pré-rempli.
+- **Suivi de commande** en temps réel : Reçue → En préparation → Prête / En route → Récupérée.
+- Statut d'ouverture calculé automatiquement (fuseau `Africa/Lubumbashi`).
+- Retrait au comptoir (gratuit) ou livraison (2 000 FC, offerte dès 15 000 FC).
+
+**Côté équipe** — `http://localhost:8000/admin`
+
+- Connexion par clé d'accès.
+- Tableau de bord : commandes du jour, commandes en cours, prêtes, recette du jour.
+- Filtres par statut et changement d'état en un clic (accepter → prête → récupérée, ou annuler).
+- Actualisation automatique toutes les 25 secondes.
+
+---
+
+## Stack
+
+| Élément | Choix |
+| --- | --- |
+| Serveur | Node.js natif (`node:http`), **aucune dépendance npm** |
+| Stockage | Fichier JSON (`data/orders.json`) |
+| Front-end | HTML, CSS et JavaScript natifs (aucun framework) |
+| Polices | Fraunces & Plus Jakarta Sans, auto-hébergées (licence OFL) |
+| Images | Générées pour le projet, dans `public/assets/` |
+
+## Démarrage
+
+```bash
+npm start          # ou : node server.js
+```
+
+Le site est disponible sur **http://localhost:8000** et l'espace équipe sur **http://localhost:8000/admin**.
+
+Variables d'environnement :
+
+| Variable | Défaut | Rôle |
+| --- | --- | --- |
+| `PORT` | `8000` | Port d'écoute |
+| `HOST` | `0.0.0.0` | Interface d'écoute |
+| `ADMIN_KEY` | `fabriny2026` | Clé d'accès à l'espace équipe — **à changer en production** |
+
+```bash
+ADMIN_KEY="une-cle-solide" PORT=8080 npm start
+```
+
+---
 
 ## Structure
 
-| Élément | Description |
-| --- | --- |
-| `README.md` | Présentation du projet |
-| `site/index.html` | Page d'accueil (HTML/CSS/JS, aucune dépendance) |
-
-## Lancer la page d'accueil
-
-```bash
-cd site && python3 -m http.server 8000
+```
+├── server.js              # serveur HTTP + API (routes, validation, stockage)
+├── data/
+│   ├── products.json      # catalogue : catégories, produits, prix
+│   ├── shop.json          # infos boutique : horaires, téléphone, livraison
+│   └── orders.json        # commandes (créé à la volée, non versionné)
+└── public/
+    ├── index.html         # boutique (hero, carte, panier, suivi)
+    ├── styles.css         # design system + mise en page
+    ├── app.js             # panier, commande, suivi
+    ├── admin.html         # espace équipe
+    ├── admin.css / admin.js
+    ├── assets/            # photos + favicon
+    └── fonts/             # polices OFL auto-hébergées
 ```
 
-Puis ouvrir http://localhost:8000
+## API
+
+| Méthode | Route | Description |
+| --- | --- | --- |
+| `GET` | `/api/config` | Infos boutique, catégories, statuts |
+| `GET` | `/api/products` | Catalogue complet |
+| `POST` | `/api/orders` | Crée une commande (prix et frais recalculés côté serveur) |
+| `GET` | `/api/orders/:code?phone=` | Suivi (le téléphone doit correspondre) |
+| `GET` | `/api/admin/orders` | Liste des commandes *(clé requise)* |
+| `PATCH` | `/api/admin/orders/:code` | Change le statut *(clé requise)* |
+| `GET` | `/api/health` | Sonde de disponibilité |
+
+Exemple de commande :
+
+```bash
+curl -X POST http://localhost:8000/api/orders \
+  -H 'content-type: application/json' \
+  -d '{
+    "mode": "livraison",
+    "customer": { "name": "Fabrice N.", "phone": "+243 970 111 222" },
+    "address": "Avenue Kasavubu 24, Bel-Air",
+    "items": [{ "id": "pain-levain", "qty": 2 }, { "id": "shawarma-poulet", "qty": 1 }]
+  }'
+```
+
+La clé d'administration se transmet via l'en-tête `x-admin-key` (ou `?key=`).
+
+### Garde-fous
+
+- Prix, frais de livraison et totaux **recalculés côté serveur** : un panier falsifié ne peut pas modifier le montant.
+- Validation stricte (nom, téléphone, adresse, quantités 1–20, 25 articles différents maximum).
+- Limitation de débit sur la création de commande (25 par 5 minutes et par IP).
+- Comparaison de la clé admin à temps constant, protection contre la traversée de répertoires.
+- Téléphone masqué côté public : le suivi exige le code **et** les 8 derniers chiffres du numéro.
+
+---
+
+## Personnaliser
+
+- **Prix, produits, descriptions** → `data/products.json`
+- **Téléphone, WhatsApp, adresse, horaires, frais de livraison** → `data/shop.json`
+- **Couleurs, typographie, arrondis** → variables CSS en tête de `public/styles.css`
+
+Les coordonnées livrées sont des valeurs d'exemple (`+243 97 000 0000`, avenue Kasavubu) : **remplacez-les par les vraies coordonnées de la boutique** avant la mise en ligne.
+
+## Notes de production
+
+- Sauvegardez `data/orders.json` (ou branchez une base de données) : c'est le seul état persistant.
+- Servez le site derrière HTTPS et changez `ADMIN_KEY`.
+- Aucune dépendance npm ni build : un `node server.js` suffit, sur n'importe quel hébergeur Node.
+
+## Crédits
+
+Polices [Fraunces](https://fonts.google.com/specimen/Fraunces) et [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans),
+distribuées sous SIL Open Font License (fichiers de licence dans `public/fonts/`).

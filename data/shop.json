@@ -1,0 +1,24 @@
+{
+  "name": "Fabriny Bakery",
+  "tagline": "Boulangerie artisanale de quartier · pains, donuts & shawarma",
+  "phone": "+243 97 000 0000",
+  "whatsapp": "243970000000",
+  "email": "bonjour@fabrinybakery.cd",
+  "address": {
+    "line1": "Avenue Kasavubu, 24",
+    "line2": "Quartier Bel-Air",
+    "city": "Lubumbashi",
+    "region": "Haut-Katanga, RDC"
+  },
+  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fabriny+Bakery+Lubumbashi",
+  "currency": "FC",
+  "deliveryFee": 2000,
+  "freeDeliveryFrom": 15000,
+  "prepMinutes": 20,
+  "since": 2019,
+  "announcement": "Livraison offerte dès 15 000 FC dans le quartier · Commandes jusqu'à 19h30",
+  "hours": [
+    { "days": [1, 2, 3, 4, 5, 6], "open": "05:30", "close": "20:00" },
+    { "days": [0], "open": "06:00", "close": "13:00" }
+  ]
+}
