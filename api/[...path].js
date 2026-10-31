@@ -39,11 +39,15 @@ module.exports = async function handler(req, res) {
   const url = new URL(req.url, `https://${req.headers.host || 'localhost'}`);
   const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
 
+  // req.url conserve le chemin d'origine (/api/orders/...) ;
+  // req.query.path n'est pas toujours renseigné selon le runtime.
+  const pathname = url.pathname.startsWith('/api') ? url.pathname : toPathname(req.query);
+
   let result;
   try {
     result = await handleApiRequest({
       method: req.method,
-      pathname: toPathname(req.query),
+      pathname,
       searchParams: url.searchParams,
       headers: req.headers,
       body: parseBody(req.body),
